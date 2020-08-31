@@ -1,11 +1,10 @@
 import { DAC } from "@laser-dac/core";
-import config from "./config";
+import { Simulator } from "@laser-dac/simulator";
 import { Scene, Rect } from "@laser-dac/draw";
 
 (async () => {
-  const { Device } = config;
   const dac = new DAC();
-  dac.use(new Device());
+  dac.use(new Simulator());
   await dac.start();
 
   const scene = new Scene({

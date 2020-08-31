@@ -16,14 +16,35 @@ It is very easy to get started:
 - **Clone this repository**: Find or create an empty folder and open the terminal run `git clone https://github.com/ofcourseio/laser-dac-tutorials.git`. Change directory `cd laser-dac-tutorials`
 - **Install dependcies**: Run `yarn install`.
 - **Run demo on a simulator**: Run `yarn run dev`, and open your browser with`http://localhost:8080`.
-- **Run demo on the connected device**: Change the content of `src/config.,s` as follows, then run `yarn run dev`.
+- **Run demo on the connected device**: Change code as follows, then run `yarn run dev`.
   
 ```js
+import { DAC } from "@laser-dac/core";
 import { EtherDream } from "@laser-dac/ether-dream";
+import { Scene, Rect } from "@laser-dac/draw";
 
-export default {
-  Device: EtherDream,
-};
+(async () => {
+  const dac = new DAC();
+  dac.use(new EtherDream());
+  await dac.start();
+
+  const scene = new Scene({
+    resolution: 500,
+  });
+  scene.start(step);
+  dac.stream(scene);
+
+  function step() {
+    const rect = new Rect({
+      width: 0.2,
+      height: 0.2,
+      x: 0.4,
+      y: 0.4,
+      color: [1, 1, 0],
+    });
+    scene.add(rect);
+  }
+})();
 ```
 
 If everything goes right, it looks like as below:
