@@ -22,7 +22,7 @@ fs.watch(filePath, { recursive: true }, (event, filename) => {
 function bundle() {
   execute("yarn run build", {
     start: "🚀 Begin bundling...",
-    end: "✅ Bundle success！\n Started simulator on http://localhost:8080"
+    end: "✅ Bundle success!"
   });
 }
 
