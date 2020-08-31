@@ -1,0 +1,27 @@
+{
+  "name": "ether-dream-tutorails",
+  "version": "0.0.0",
+  "description": "This is the tutorials for Laser CAD",
+  "main": "index.js",
+  "author": "pearmini <subairui@icloud.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist",
+    "dev": "node ./scripts/index.js",
+    "start": "node ./dist/index.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "@laser-dac/core": "^0.4.1",
+    "@laser-dac/draw": "^0.6.0",
+    "@laser-dac/ether-dream": "^0.4.1",
+    "@laser-dac/simulator": "^0.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "nodemon": "^2.0.4"
+  }
+}
